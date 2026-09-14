@@ -48,26 +48,26 @@ The project follows a simple philosophy:
 
 VENOMBusiness currently provides:
 
-* 🏢 Company / workspace management
-* 👥 Customer management
-* 📦 Products & services
-* 📄 Quotations
-* 🧾 Invoices
-* 💳 Payment recording
-* 💸 Expense management
-* 📊 Financial overview
-* 📑 PDF quotations
-* 📑 PDF invoices
-* 🧾 Payment receipts
-* 🔐 Authentication
-* 🛡️ Role-based access control
-* 📝 Audit logging
-* 💾 Backup & restore utilities
-* ❤️ Health & readiness endpoints
-* 🗃️ SQLite support
-* 🐘 PostgreSQL support
-* 🔄 SQLite → PostgreSQL migration utility
-* 🏠 Self-hosted deployment
+- 🏢 Company / workspace management
+- 👥 Customer management
+- 📦 Products & services
+- 📄 Quotations
+- 🧾 Invoices
+- 💳 Payment recording
+- 💸 Expense management
+- 📊 Financial overview
+- 📑 PDF quotations
+- 📑 PDF invoices
+- 🧾 Payment receipts
+- 🔐 Authentication
+- 🛡️ Role-based access control
+- 📝 Audit logging
+- 💾 Backup & restore utilities
+- ❤️ Health & readiness endpoints
+- 🗃️ SQLite support
+- 🐘 PostgreSQL support
+- 🔄 SQLite → PostgreSQL migration utility
+- 🏠 Self-hosted deployment
 
 ---
 
@@ -179,21 +179,21 @@ For small and medium deployments, a modular monolith provides simpler operations
 
 ### Backend
 
-* Go
-* REST / JSON API
-* Server-side sessions
-* Argon2id password hashing
-* RBAC
-* Database migrations
-* Audit logging
+- Go
+- REST / JSON API
+- Server-side sessions
+- Argon2id password hashing
+- RBAC
+- Database migrations
+- Audit logging
 
 ### Frontend
 
-* React
-* TypeScript
-* Vite
-* Tailwind CSS
-* Lucide Icons
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Lucide Icons
 
 ### Database
 
@@ -203,12 +203,12 @@ VENOMBusiness supports two database strategies.
 
 Recommended for:
 
-* Personal use
-* Freelancers
-* Small businesses
-* Local installations
-* Small teams
-* Development
+- Personal use
+- Freelancers
+- Small businesses
+- Local installations
+- Small teams
+- Development
 
 SQLite requires almost zero database administration.
 
@@ -216,12 +216,12 @@ SQLite requires almost zero database administration.
 
 Recommended for:
 
-* Production deployments
-* Startups
-* Multi-user installations
-* Growing businesses
-* Larger datasets
-* Higher concurrency environments
+- Production deployments
+- Startups
+- Multi-user installations
+- Growing businesses
+- Larger datasets
+- Higher concurrency environments
 
 The application is designed so businesses can start small with SQLite and migrate to PostgreSQL later.
 
@@ -532,18 +532,18 @@ Security is treated as a core part of VENOMBusiness architecture.
 
 Current security foundations include:
 
-* Argon2id password hashing
-* Server-side sessions
-* Secure session cookies
-* Role-based authorization
-* Company/workspace isolation
-* Login rate limiting
-* CSRF same-origin protection
-* HTTP security headers
-* Request body size limits
-* Database foreign keys
-* Audit logging
-* Production configuration validation
+- Argon2id password hashing
+- Server-side sessions
+- Secure session cookies
+- Role-based authorization
+- Company/workspace isolation
+- Login rate limiting
+- CSRF same-origin protection
+- HTTP security headers
+- Request body size limits
+- Database foreign keys
+- Audit logging
+- Production configuration validation
 
 Please do not publicly disclose security vulnerabilities through GitHub Issues.
 
@@ -599,18 +599,18 @@ VENOMBusiness is being developed incrementally.
 
 Core Business OS foundation.
 
-* Authentication
-* Workspace
-* Customers
-* Products
-* Quotations
-* Invoices
-* Payments
-* Expenses
-* Reports
-* SQLite
-* PostgreSQL
-* Backup & restore
+- Authentication
+- Workspace
+- Customers
+- Products
+- Quotations
+- Invoices
+- Payments
+- Expenses
+- Reports
+- SQLite
+- PostgreSQL
+- Backup & restore
 
 ### v0.6
 
@@ -618,16 +618,16 @@ Inventory & Stock Engine.
 
 Planned:
 
-* Warehouses
-* Stock in
-* Stock out
-* Stock adjustments
-* Stock movement ledger
-* Low-stock alerts
-* Suppliers
-* Purchasing foundation
-* COGS
-* Inventory valuation
+- Warehouses
+- Stock in
+- Stock out
+- Stock adjustments
+- Stock movement ledger
+- Low-stock alerts
+- Suppliers
+- Purchasing foundation
+- COGS
+- Inventory valuation
 
 ### v0.7
 
@@ -635,12 +635,12 @@ CRM.
 
 Planned:
 
-* Leads
-* Opportunities
-* Sales pipeline
-* Activities
-* Follow-up reminders
-* Customer timeline
+- Leads
+- Opportunities
+- Sales pipeline
+- Activities
+- Follow-up reminders
+- Customer timeline
 
 ### v0.8
 
@@ -662,13 +662,13 @@ Contributions are welcome.
 
 You can contribute by:
 
-* Reporting bugs
-* Suggesting features
-* Improving documentation
-* Testing SQLite and PostgreSQL
-* Improving UI/UX
-* Reviewing security
-* Submitting pull requests
+- Reporting bugs
+- Suggesting features
+- Improving documentation
+- Testing SQLite and PostgreSQL
+- Improving UI/UX
+- Reviewing security
+- Submitting pull requests
 
 Please read:
 
@@ -686,13 +686,13 @@ Found a bug?
 
 Please use the GitHub Bug Report template and include:
 
-* VENOMBusiness version
-* Operating system
-* Database driver
-* Steps to reproduce
-* Expected behavior
-* Actual behavior
-* Relevant logs
+- VENOMBusiness version
+- Operating system
+- Database driver
+- Steps to reproduce
+- Expected behavior
+- Actual behavior
+- Relevant logs
 
 Never include passwords, tokens, `.env` contents, production database dumps, or other secrets.
 
@@ -763,12 +763,12 @@ It helps more developers, freelancers, startup founders, and small-business owne
 
 You can also help by:
 
-* Testing the application
-* Reporting bugs
-* Improving documentation
-* Suggesting business workflows
-* Contributing code
-* Sharing the project
+- Testing the application
+- Reporting bugs
+- Improving documentation
+- Suggesting business workflows
+- Contributing code
+- Sharing the project
 
 ---
 
