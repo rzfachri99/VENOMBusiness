@@ -1,0 +1,49 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  api-sqlite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.x'
+      - run: cd apps/api && go test ./...
+
+  api-postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_DB: venombusiness
+          POSTGRES_USER: venom
+          POSTGRES_PASSWORD: venom_ci_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U venom -d venombusiness"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      VENOM_DATABASE_DRIVER: postgres
+      VENOM_DATABASE_URL: postgres://venom:venom_ci_password@localhost:5432/venombusiness?sslmode=disable
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.x'
+      - run: cd apps/api && go test ./...
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: cd apps/web && npm install && npm run build

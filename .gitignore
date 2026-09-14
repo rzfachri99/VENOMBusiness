@@ -1,0 +1,54 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Databases and application data
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+storage/
+data/
+backups/
+*.backup
+*.dump
+
+# Logs / runtime
+*.log
+logs/
+*.pid
+*.out
+
+# Go
+apps/api/venomctl
+apps/api/venomctl.exe
+apps/api/server
+apps/api/server.exe
+coverage.out
+
+# Node / frontend
+node_modules/
+apps/web/dist/
+apps/web/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo

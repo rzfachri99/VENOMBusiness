@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: venombusiness
+      POSTGRES_USER: venom
+      POSTGRES_PASSWORD: venom_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - venom_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U venom -d venombusiness"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  venom_pgdata:
