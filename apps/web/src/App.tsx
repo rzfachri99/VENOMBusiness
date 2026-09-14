@@ -213,3 +213,21 @@ function Expenses({role,currency}:{role:string;currency:string}){
 function Reports({currency}:{currency:string}){const[d,setD]=useState<FinanceReport|null>(null),[error,setError]=useState('');useEffect(()=>{api<FinanceReport>('/api/v1/reports/finance').then(setD).catch(e=>setError(e.message))},[]);if(!d)return <>{error?<div className="error-box">{error}</div>:<Splash/>}</>;return <><header><div><p>FINANCIAL REPORT</p><h1>Business performance</h1><span>A cash-oriented operating snapshot from invoices, collections and recorded expenses.</span></div></header><section className="stats"><Stat label="Invoiced" value={money(d.invoiced_minor,currency)}/><Stat label="Collected" value={money(d.collected_minor,currency)}/><Stat label="Expenses" value={money(d.expense_minor,currency)}/><Stat label="Cash result" value={money(d.cash_result_minor,currency)}/></section><section className="grid"><article className="panel"><small>ACCOUNTS RECEIVABLE</small><h2>{money(d.receivable_minor,currency)}</h2><p className="muted">{d.open_invoices} invoice(s) remain open. This is an operational report, not a full accrual accounting statement.</p></article><article className="panel"><small>FORMULA</small><h2>Collected − Expenses</h2><p className="muted">Cash result intentionally stays simple for small-business visibility. Full ledger/accounting can be introduced as a separate module later.</p></article></section></>}
 
 function SettingsPage({me}:{me:Me}){const empty:BusinessProfile={legal_name:'',tax_id:'',email:'',phone:'',address:'',bank_name:'',bank_account_name:'',bank_account_number:'',qris_text:''};const[form,setForm]=useState<BusinessProfile>(empty),[saved,setSaved]=useState(false),[error,setError]=useState('');useEffect(()=>{api<BusinessProfile>('/api/v1/company/profile').then(setForm).catch(e=>setError(e.message))},[]);const canEdit=['owner','admin'].includes(me.company!.role);async function save(e:FormEvent){e.preventDefault();setError('');try{await api('/api/v1/company/profile',{method:'PUT',body:JSON.stringify(form)});setSaved(true);setTimeout(()=>setSaved(false),1800)}catch(e){setError(e instanceof Error?e.message:'Could not save profile')}}return <><header><div><p>BUSINESS PROFILE</p><h1>{me.company!.name}</h1><span>Legal identity and payment details used on generated documents.</span></div></header><form className="panel profile-form" onSubmit={save}><div className="form-grid"><label>Legal name<input disabled={!canEdit} value={form.legal_name} onChange={e=>setForm({...form,legal_name:e.target.value})}/></label><label>Tax ID / NPWP<input disabled={!canEdit} value={form.tax_id} onChange={e=>setForm({...form,tax_id:e.target.value})}/></label><label>Email<input disabled={!canEdit} value={form.email} onChange={e=>setForm({...form,email:e.target.value})}/></label><label>Phone<input disabled={!canEdit} value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})}/></label><label className="wide">Address<textarea disabled={!canEdit} value={form.address} onChange={e=>setForm({...form,address:e.target.value})}/></label><label>Bank<input disabled={!canEdit} value={form.bank_name} onChange={e=>setForm({...form,bank_name:e.target.value})}/></label><label>Account number<input disabled={!canEdit} value={form.bank_account_number} onChange={e=>setForm({...form,bank_account_number:e.target.value})}/></label><label className="wide">Account name<input disabled={!canEdit} value={form.bank_account_name} onChange={e=>setForm({...form,bank_account_name:e.target.value})}/></label><label className="wide">QRIS / payment instructions<textarea disabled={!canEdit} value={form.qris_text} onChange={e=>setForm({...form,qris_text:e.target.value})}/></label></div>{error&&<div className="error-box">{error}</div>}{saved&&<div className="success-box">Business profile saved.</div>}{canEdit&&<div className="modal-actions"><button className="primary">Save business profile</button></div>}</form></>}
+
+function Stat({
+  label,
+  value,
+  detail,
+}: {
+  label: string
+  value: string
+  detail?: string
+}) {
+  return (
+    <article>
+      <small>{label}</small>
+      <strong>{value}</strong>
+      {detail && <span>{detail}</span>}
+    </article>
+  )
+}
