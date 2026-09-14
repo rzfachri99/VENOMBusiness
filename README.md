@@ -782,4 +782,8 @@ You can also help by:
 
 <p align="center">
   Built with Go, React, TypeScript, SQLite and PostgreSQL.
+<<<<<<< HEAD
 </p>
+=======
+</p>
+>>>>>>> aec8f81 (docs: improve README with screenshots and public documentation)
